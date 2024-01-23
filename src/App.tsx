@@ -1,33 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useState} from 'react'
 import './App.css'
+import Modal from "./components/Modal/Modal.tsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [showModal, setShowModal] = useState(false)
+
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h2 className="bg-primary border border-primary">
+          Для открытия полного списка товаров кликните на кнопку "Заказать"
+      </h2>
+      <div className="container-fluid mt-4">
+        <button className="w-15 btn btn-danger mt-4" onClick={openModal}>Заказать</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Modal
+        show={showModal}
+        onClose={closeModal}
+        title="Сайт на стадии разработки!"
+      >
+      </Modal>
     </>
   )
 }
