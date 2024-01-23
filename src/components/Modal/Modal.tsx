@@ -9,7 +9,6 @@ interface Props extends React.PropsWithChildren {
 
 const Modal: React.FC<Props> = ({ show, title, onClose }) => {
   return (
-    <div>
       <>
         <Backdrop show={show} onClick={onClose} />
         <div className="modal show" style={{ display: show ? 'block' : 'none' }} onClick={onClose}>
@@ -32,7 +31,6 @@ const Modal: React.FC<Props> = ({ show, title, onClose }) => {
           </div>
         </div>
       </>
-    </div>
   );
 };
 

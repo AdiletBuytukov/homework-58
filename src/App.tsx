@@ -1,9 +1,11 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import Modal from "./components/Modal/Modal.tsx";
+import Alert from "./components/UI-Component/Alert.tsx";
 
-const App = () => {
+const App: React.FC = () => {
   const [showModal, setShowModal] = useState(false)
+  const [showAlert, setShowAlert] = useState(false);
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
@@ -22,6 +24,14 @@ const App = () => {
         title="Сайт на стадии разработки!"
       >
       </Modal>
+
+      <Alert
+        show={showAlert}
+        onClick={() => setShowAlert(true)}
+      >
+        text
+      </Alert>
+
     </>
   )
 }
